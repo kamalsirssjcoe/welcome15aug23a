@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title> App 4 by Kamal Sir </title>
+		<style>
+			* { font-size: 50px; }
+			body { background-color:lightblue; }
+		</style>
+		<script>
+			function show() {
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let ans = document.getElementById("ans");
+			if (name.value == "") {
+				ans.innerHTML = "u did not enter any name ";
+			}
+			else if (name.value.trim() == "") {
+				ans.innerHTML = "name shud not be only spaces";
+			}
+			else if (! name.value.match(/^[A-Za-z ]+$/)) {
+				ans.innerHTML = "name shud contain only alpha";
+			}
+			else {
+				let d = new Date();
+				let hr = d.getHours();
+				let a = "";
+				if (hr < 12)		a = "Good Morning";
+				else if  (hr < 16)	a = "Good Afternoon";
+				else			a = "Good Evening";
+				let msg = a + " " + name.value;
+				ans.innerHTML = msg;
+			}
+			}
+		</script>
+	</head>
+	<body>
+	<center>
+		<h1> Welcome App </h1>
+		<form onsubmit="show()">
+		<input type="text" id="name" placeholder="enter ur name "/>
+		<br><br>
+		<input type="submit" />
+		</form>
+		<h1 id="ans" />
+	</center>
+	</body>
+</html>
+
+
